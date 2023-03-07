@@ -1,6 +1,8 @@
 package it.polito.tdp.Lab01;
 
 import java.net.URL;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.Lab01.model.Parole;
@@ -12,7 +14,7 @@ import javafx.scene.control.TextField;
 
 public class FXMLController {
 	
-	Parole elenco ;
+	Parole elenco;
 
     @FXML
     private ResourceBundle resources;
@@ -34,12 +36,19 @@ public class FXMLController {
 
     @FXML
     void doInsert(ActionEvent event) {
-
+    	txtResult.setText("");
+    	this.elenco.addParola(txtParola.getText());
+    	List<String> daRestituire = this.elenco.getElenco();
+    	for(String s: daRestituire) {
+    		txtResult.appendText(s+"\n");
+    	}
+    	
     }
 
     @FXML
     void doReset(ActionEvent event) {
-
+    	this.elenco.reset();
+    	txtResult.setText("");
     }
 
     @FXML

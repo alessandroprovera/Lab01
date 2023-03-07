@@ -16,6 +16,10 @@ public class Parole {
 		elencoParole.add(p);
 	}
 	
+	public void deleteParola(String p) {
+		elencoParole.remove(p);
+	}
+	
 	public List<String> getElenco() {
 		Collections.sort(elencoParole);
 		return elencoParole;
